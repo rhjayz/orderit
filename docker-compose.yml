@@ -25,7 +25,6 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: orderit
-      MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     volumes:
       - mysql-data:/var/lib/mysql
