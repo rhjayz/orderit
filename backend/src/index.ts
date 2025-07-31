@@ -33,6 +33,10 @@ console.log("GOOGLE_CALLBACK_URL:", process.env.GOOGLE_CALLBACK_URL);
 
 app.use("/api", route);
 
+if (process.env.NODE_ENV === "production") {
+  console.log("Running in production mode");
+}
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
