@@ -1,0 +1,135 @@
+#root{
+  background-color: #f8f8f8 !important;
+  font-family: "Encode Sans" ;
+}
+
+.navton{
+  stroke-width: 0.1px; /* Bisa coba variasi 0.8 - 1.2 */
+  color: #5E5E5E !important;
+}
+
+.navton:hover{
+  background-color: rgb(238, 238, 238);
+}
+
+.active{
+  color: #8F6A0C !important;
+  background-color:#FEF9EF !important;
+}
+
+.fullhsidebar{
+  height: 50vh !important;
+  min-height: 100% !important;
+}
+
+.widthsidebar{
+  width: 38vh !important;
+}
+
+.table-custom{
+    border-left: 0.5px solid #cdcdcd;  /* Border kiri */
+    border-right: 0.5px solid #cdcdcd; /* Border kanan */
+    border-top: 0.5px solid #cdcdcd;   /* Border atas */
+    border-bottom: 0.5px solid #cdcdcd; /* Border bawah */
+    border-radius: 10px;
+    border-collapse: separate; /* Supaya border tidak menimpa sel */
+    border-spacing: 0;
+    overflow: hidden;
+}
+.table-custom th {
+  background-color: #fffaf0 !important; /* Warna latar belakang */
+  color: #9f9f9f !important; /* Warna teks merah tua biar kontras */
+}
+
+.table-custom td {
+  color: #9f9f9f !important; /* Warna teks merah tua biar kontras */
+}
+
+.btn-outline-custom {
+  background-color: transparent;
+  border: 0.1px solid #9f9f9f; /* Warna border */
+  color: #9f9f9f; /* Warna teks */
+  font-size: 16px;
+  border-radius: 5px; /* Biar agak melengkung */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  border: 0.1px solid #ccb069;
+  color: #ccb069 !important;
+  background-color:#fdfbf5 !important;
+}
+
+.bg-custom-success{
+  background-color: #b8ff85;
+}
+
+.bg-custom-danger{
+  background-color: #ffa285;
+}
+
+.bg-custom-gray{
+  background-color: #f1f1f1;
+}
+
+.fs-custom{
+  font-size: 12px;
+}
+
+input.form-control:hover {
+    border-color: #f1e2c1 !important; /* Warna kuning saat hover */
+}
+
+/* Saat input aktif (focus) */
+input.form-control:focus {
+    border-color: #cc8d08 !important; /* Warna orange saat fokus */
+    box-shadow: 0 0 5px rgba(235, 198, 151, 0.5) !important; /* Efek glow */
+}
+
+select.form-select:hover {
+    border-color: #f1e2c1 !important; /* Warna kuning saat hover */
+}
+
+/* Saat input aktif (focus) */
+select.form-select:focus {
+    border-color: #cc8d08 !important; /* Warna orange saat fokus */
+    box-shadow: 0 0 5px rgba(235, 198, 151, 0.5) !important; /* Efek glow */
+}
+
+
+chart-bar-hover:hover{
+    fill: #f1e2c1 !important; 
+    filter: drop-shadow(0 4px 8px rgba(235, 198, 151, 0.5)) !important;
+}
+
+.custom-select {
+    appearance: none;
+    height: 4.3vh;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border: 1px solid #ced4da;
+    padding: 0px 30px 5px 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+   /* Sesuaikan dengan ukuran select */
+}
+
+.custom-arrow {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Biar klik tetap ke select */
+}
+
+
+@media (max-width:992px) {
+
+}

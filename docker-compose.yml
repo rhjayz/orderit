@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: orderit-backend
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: mysql://root:@mysql:3306/orderit
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    container_name: orderit-frontend
+    ports:
+      - "3000:3000"  # sesuaikan jika frontend kamu serve di 5173
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:8.0
+    container_name: orderit-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: orderit
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306" # optional, buat akses luar docker kalau mau
+
+volumes:
+  mysql-data:

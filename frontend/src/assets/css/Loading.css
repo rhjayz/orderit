@@ -1,0 +1,52 @@
+.loading-page {
+  font-family: 'Encode Sans', sans-serif;
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color:#ffffff;
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-page.fade-out{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo {
+  height: 7em;
+  width: 7em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  animation: spin 1s linear infinite;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #ff9899);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #ffb488);
+}
+
+.loading-text{
+    animation: fadeInOut 2s infinite ease-in-out;
+}
+
+@keyframes fadeInOut{
+    0%, 100%{
+        opacity: 0.3;
+    }
+    50%{
+        opacity: 0.9;
+    }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,0 +1,45 @@
+:root{
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #fffdfb;
+}
+
+
+.index-page{
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+.index-page.fade-in{
+  opacity: 1;
+}
+
+.navbar{
+  font-weight: 500;
+}
+
+.bg-colour{
+ background-color:  #fffdfb !important;;
+}
+
+.landing{
+  min-height: 40vh;
+}
+
+.op{
+  color: #ffb488;
+}
+
+.mn{
+  color: #ff9899;
+}
+
+
+@media (max-width:992px) {
+html, body {
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+}

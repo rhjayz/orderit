@@ -1,0 +1,40 @@
+GET http://localhost:5000/api/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSYWhhamF5IiwicGFzc3dvcmQiOiIkMmIkMTAkdElTLk54WFE3L0Y5djdobnFGbGVRLkxtaVRqb1hUNVpWMy9BVHJ0ZHlIMmxXUFp5dFNkbFMiLCJlbWFpbCI6Im1yYWhhamF5QGdtYWlsLmNvbSIsImlhdCI6MTczNzQ0Mjk0NSwiZXhwIjoxNzM3NDQyOTYwfQ.zJ9ZMS0hSOSL38Wpi34tnucHn1HeNOGwfKVH10k3fmA
+###
+
+GET http://localhost:5000/api/
+####
+
+GET http://localhost:5000/api/users
+
+
+
+####
+
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+    "name":"gaben",
+    "email":"rahajays@gmail.com",
+    "password":"jahanam123"
+}
+
+###
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+    "email":"aetmine@gmail.com",
+    "password":"jahanam1223"
+}
+
+###
+
+GET http://localhost:5000/token
+
+###
+
+DELETE http://localhost:5000/logout
+
+###

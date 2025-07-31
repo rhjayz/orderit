@@ -1,0 +1,218 @@
+.auth-form{
+    background-color: #fffdfc !important;
+}
+
+.auth-title{
+    font-weight: bold;
+}
+
+h3{
+    color: #ffffff;
+}
+
+.auth-subtitle{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+.mmk-5{
+    margin-left: 3rem !important; /* Sesuai dengan Bootstrap, 1rem = 16px, jadi 3rem = 48px */
+}
+
+.forgotpassword{
+    background-color: #f5f3f2;
+}
+
+.auth-form input.form-control {
+    border: 2px solid #ccc !important; /* Warna border default */
+    transition: border-color 0.3s ease-in-out !important;
+}
+
+/* Saat di-hover */
+.auth-form input.form-control:hover {
+    border-color: #cc8d08 !important; /* Warna kuning saat hover */
+}
+
+/* Saat input aktif (focus) */
+.auth-form input.form-control:focus {
+    border-color: #cc8d08 !important; /* Warna orange saat fokus */
+    box-shadow: 0 0 5px rgba(134, 78, 5, 0.5) !important; /* Efek glow */
+}
+
+.no-underline{
+    text-decoration: none !important;
+    color: #48b6fa !important;
+}
+
+.btn-prime{
+    background-color: #cc8d08  !important; /* Warna oranye */
+    border-color: #cc8d08 !important; /* Warna border */
+    color: white !important; /* Warna teks */
+}
+
+.btn-prime:hover{
+    background-color: #946603 !important; /* Warna kuning kecoklatan */
+    border-color: #946603 !important;
+}
+
+.bg-foto-login{
+      width: 200px;
+  height: 200px;
+  background-image: url('/auth-login.png'); /* Path dari folder public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  min-width: 100vh;
+  min-height: 97vh;
+}
+
+.bg-foto-register{
+  width: 200px;
+  height: 200px;
+  background-image: url('/auth-register.png'); /* Path dari folder public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  min-width: 100vh;
+  min-height: 97vh;
+}
+
+ .ww-auto{
+        width: auto;
+    }
+
+@media (max-width:992px) {
+    .login-page{
+        background:url("/auth-login.png");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .register-page{
+        background:url("/auth-register.png");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+   
+
+    .disable-ms-mobile  {
+        margin-left: 0 !important;
+    }
+
+    .bg-foto-login{
+        display: none;
+    }
+
+    .bg-foto-register{
+        display: none;
+    }
+
+    .mmk-5{
+        margin-left: 0 !important;
+    }
+
+     .ww-auto{
+        width: 100% !important;
+    }
+
+    .auth-card{
+        background: rgba(255, 255, 255, 0.9);
+        padding: 3rem;
+        padding-left: 5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 90%;
+        width: 400px;
+    }
+    
+    .card{
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: auto !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    max-width: 90% !important;
+    width: 400px !important;
+    margin: auto !important;
+    }
+
+.auth-title{
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    }
+    
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .form-card {
+    max-width: 450px;
+    width: 100%;
+    margin-right: 50vh;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(5%, -50%);
+  }
+  .container.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+  }
+  .index-page.auth-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .row.h-100 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .col-md-5 {
+    display: flex;
+    justify-content: center;
+  }
+
+.google-signin {
+  width: 75%; /* Biar fleksibel */
+  max-width: 75%; /* Batas maksimal */
+  height: 50px; /* Tinggi konsisten */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.w-70{
+    max-width: 60% !important;
+}
+}
+    

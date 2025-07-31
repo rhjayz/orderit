@@ -1,0 +1,185 @@
+    generator client {
+      provider = "prisma-client-js"
+    }
+
+    datasource db {
+      provider = "mysql"
+      url      = env("DATABASE_URL")
+    }
+
+    enum Role {
+      STAFF
+      CLIENT
+    }
+
+    model user {
+      id          String   @id @default(uuid())
+      name        String
+      email       String   @unique
+      password    String?
+      googleID    String?  @unique
+      createdAt   DateTime @default(now())
+      secretToken String?
+      isVerified  Boolean  @default(false)
+      photo       String?
+
+      passwordResets passwordReset[] @relation("UserToPasswordReset") 
+      staff staff[]
+      branch branch[]
+      transaction transaction[]
+    }
+
+    model passwordReset {
+      id        String    @id @default(uuid())
+      userEmail String    @unique
+      token     String    @unique
+      createdAt DateTime  @default(now())
+
+      user user @relation(fields: [userEmail], references: [email], onDelete: Cascade ,name: "UserToPasswordReset")
+    }
+
+    model staff  {
+      id          String   @id @default(uuid())
+      idBranch    String
+      idUser      String
+      codeStaff   String?  @unique(map: "Staff_codestaff_key")
+      username    String?  @unique(map: "Staff_username_key")
+      email       String?  @unique(map: "Staff_email_key")
+      name        String?  
+      role        Role     @default(STAFF)
+      photo       String?
+      createdAt   DateTime  @default(now())
+      updatedAt   DateTime  @default(now())
+
+      branch  branch @relation(fields: [idBranch], references: [id]) 
+      user    user   @relation(fields: [idUser], references: [id])  
+      transaction transaction[]
+    }
+
+    model branch{
+      id          String    @id @default(uuid())
+      idUser      String   
+      codeBranch  String?   @unique(map: "Code_Branch_key")
+      location    String
+      status      Boolean   @default(true)
+      price       Int       @default(0)
+      createdAt   DateTime  @default(now())
+      updatedAt   DateTime  @default(now())
+
+      staff   staff[]
+      qrcode  qrcode[]
+      section section[]
+      transaction transaction[]
+      user user @relation(fields:[idUser], references:[id])
+    }
+
+    model qrcode{
+      id          String    @id@default(uuid())
+      idBranch    String
+      url         String    @unique
+      qrcode      String    @unique
+      createdAt   DateTime  @default(now())
+      updatedAt   DateTime  @default(now())
+      branch   branch @relation(fields:[idBranch], references:[id])
+    }
+
+    model section{
+      id              String    @id @default(uuid())
+      idBranch        String
+      idsectionMenu   String?
+      name            String?   
+      createdAt       DateTime @default(now())
+      updatedAt       DateTime @default(now())
+
+      branch  branch @relation(fields:[idBranch], references:[id])
+      sectionMenu   sectionMenu[]
+    }
+
+    model sectionMenu{
+        id        String    @id @default(uuid())
+        idMenu    String 
+        idSection String
+        createdAt DateTime  @default(now())
+        updatedAt DateTime  @default(now())
+
+        section section @relation(fields:[idSection], references:[id])
+        menu    menu    @relation(fields:[idMenu], references:[id]) 
+    }
+
+    model menu{
+      id          String @id@default(uuid())
+      idCategory  String 
+      idAddOns    String? 
+      codeMenu    String @unique(map: "Code_codemenu_key")
+      price       Int
+      qty         Int
+      discount    String?
+      photo       String?
+      createdAt   DateTime  @default(now())
+      updatedAt   DateTime  @default(now())
+
+      sectionMenu sectionMenu[]
+      addOnsMenu addOnsMenu[]
+      subTransaction subTransaction[]
+      category category @relation(fields:[idCategory], references:[id])
+    }
+
+    model category{
+      id          String @id@default(uuid())
+      name        String?
+      createdAt   DateTime  @default(now())
+      updatedAt   DateTime  @default(now())
+      menu menu[]
+    }
+
+    model addOnsMenu{
+        id        String    @id @default(uuid())
+        idMenu    String 
+        idAddOns  String
+        createdAt DateTime  @default(now())
+        updatedAt DateTime  @default(now())
+
+        addons  addOns  @relation(fields:[idAddOns], references:[id])
+        menu    menu    @relation(fields:[idMenu], references:[id])
+    }
+
+    model addOns{
+      id        String @id@default(uuid())
+      name      String? 
+      price     Int
+      createdAt DateTime  @default(now())
+      updatedAt DateTime  @default(now())
+
+        addOnsMenu addOnsMenu[]
+    }
+
+    model subTransaction {
+      id            String   @id @default(uuid())
+      idTransaction String
+      idMenu        String
+      quantity      Int
+      price         Int
+      createdAt     DateTime @default(now())
+      updatedAt     DateTime @default(now())
+
+      transaction transaction @relation(fields:[idTransaction], references:[id])
+      menu menu @relation(fields:[idMenu], references:[id])
+    }
+
+    model transaction {
+      id                String   @id @default(uuid())
+      idUser            String?
+      idStaff           String?  
+      idBranch          String
+      codeTransaction   String?  @unique
+      name              String?  
+      price             Int
+      status            String   @default("PENDING")
+      createdAt         DateTime @default(now())
+      updatedAt         DateTime @default(now())
+
+      staff   staff?   @relation(fields: [idStaff], references: [id]) 
+      user    user?   @relation(fields: [idUser], references: [id])   
+      branch  branch  @relation(fields: [idBranch], references: [id])
+      subTransaction subTransaction[]
+    }
