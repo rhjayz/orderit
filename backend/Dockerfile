@@ -28,4 +28,4 @@ RUN npx prisma generate
 EXPOSE 5000
 
 # Jalankan hasil build
-CMD ["node", "dist/index.js"]
+CMD ["npm", "start"]
