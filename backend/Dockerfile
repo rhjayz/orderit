@@ -12,14 +12,11 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy dependency files
-COPY package*.json ./
+# Copy seluruh kode
+COPY . .
 
 # Install dependencies
 RUN npm install
-
-# Copy seluruh kode
-COPY . .
 
 # Build TypeScript ke JavaScript
 RUN npm run build
@@ -27,11 +24,8 @@ RUN npm run build
 # Generate Prisma Client (berdasarkan hasil build)
 RUN npx prisma generate
 
-# Optional: apply migration otomatis jika kamu butuh
-# RUN npx prisma migrate deploy
-
 # Jalankan di port 5000
 EXPOSE 5000
 
 # Jalankan hasil build
-CMD ["npm", "run", "start"]
+CMD ["node", "dist/index.js"]
