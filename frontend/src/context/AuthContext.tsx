@@ -12,11 +12,13 @@ interface UserData {
 interface AuthContextType {
   user: UserData | null;
   token: string | null;
+  logout: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
   token: null,
+  logout: async () => {},
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -43,8 +45,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchUser();
   }, []);
 
+  const logout = async () => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      setToken(null); // Clear token di state
+      setUser(null); // Clear user di state
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, token }}>
+    <AuthContext.Provider value={{ user, token, logout }}>
       {children}
     </AuthContext.Provider>
   );
