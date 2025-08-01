@@ -28,11 +28,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/me`,
-          { withCredentials: true }
-        );
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/me`, {
+          withCredentials: true,
+        });
         console.log("Data User:", res.data.user);
+        console.log("Token:", res.data.token);
         setToken(res.data.token);
         setUser(res.data.user);
       } catch (error) {
