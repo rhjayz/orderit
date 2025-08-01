@@ -20,7 +20,10 @@ app.use(
     secret: process.env.SECRET_KEY!, // Ganti dengan key yang aman
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }, // Set ke true jika pakai HTTPS
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // HARUS true untuk HTTPS
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    },
   })
 );
 
