@@ -7,12 +7,12 @@ type AuthMiddlewareCheck = {
 };
 
 const Auth: React.FC<AuthMiddlewareCheck> = (status) => {
-  const { user } = useAuth();
+  const { token, user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!token) {
       console.log("User not logged in, redirecting to /login");
       if (
         ![
@@ -59,7 +59,7 @@ const Auth: React.FC<AuthMiddlewareCheck> = (status) => {
     }
 
     console.log("User verified, allowing access");
-  }, [user, user?.verified, navigate, location.pathname, status]);
+  }, [token, user?.verified, navigate, location.pathname, status]);
 
   return <Outlet />;
 };

@@ -11,25 +11,29 @@ interface UserData {
 
 interface AuthContextType {
   user: UserData | null;
+  token: string | null;
 }
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
+  token: null,
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<UserData | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/me}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/me`,
           { withCredentials: true }
         );
         console.log("Data User:", res.data.user);
+        setToken(res.data.token);
         setUser(res.data.user);
       } catch (error) {
         console.error("❌ Gagal decode token:", error);
@@ -40,7 +44,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, token }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 export const useAuth = () => {

@@ -453,7 +453,7 @@ export const me = asyncHandler(async (req: Request, res: Response) => {
   }
   try {
     const decode = jwt.verify(token, process.env.SECRET_KEY);
-    res.status(200).json({ user: decode });
+    res.status(200).json({ user: decode, token: token });
     return;
   } catch (error) {
     res.status(401).json({ message: "Invalid token" });
