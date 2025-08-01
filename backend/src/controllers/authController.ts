@@ -47,7 +47,7 @@ export const sendVerification = async (email: string, token: string) => {
     },
   });
 
-  const link = `${process.env.BASE_URL}/api/verifyAccount/${token}`;
+  const link = `${process.env.BASE_URL}/verifyAccount/${token}`;
   await transporter.sendMail({
     from: `"Orderit" <orderit@gmail.com>`,
     to: email,

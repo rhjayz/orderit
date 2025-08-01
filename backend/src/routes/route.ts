@@ -31,7 +31,7 @@ route.get("/", (req, res) => {
 //Public Route
 route.post("/register", register);
 route.post("/login", login);
-route.get("/me", me);
+route.get("/me", authMiddleware, me);
 //Auth Google
 route.get(
   "/google",
