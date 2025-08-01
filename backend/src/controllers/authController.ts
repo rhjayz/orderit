@@ -163,7 +163,7 @@ export const forgotPassword = asyncHandler(
     });
 
     const logoUrl = `${process.env.FRONTEND_URL}/logo.png`;
-    const link = `${process.env.BASE_URL}/api/resetPassword?token=${hashedToken}`;
+    const link = `${process.env.BASE_URL}/resetPassword?token=${hashedToken}`;
     await transporter.sendMail({
       from: `"Orderit" <orderit@gmail.com>`,
       to: email,

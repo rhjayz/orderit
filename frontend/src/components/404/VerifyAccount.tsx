@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "/src/assets/css/Auth.css";
 import { useAuth } from "../../context/AuthContext";
 
 function VerifyAccount() {
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
       await logout(); // Panggil logout API untuk clean session di server (optional)
       Cookies.remove("token");
-      navigate("/login");
     } catch (error) {
       console.log("Logout failed", error);
     }

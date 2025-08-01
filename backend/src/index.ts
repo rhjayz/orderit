@@ -17,11 +17,11 @@ app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 
 app.use(
   session({
-    secret: process.env.SECRET_KEY!, // Ganti dengan key yang aman
+    secret: process.env.SECRET_KEY!,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "production", // HARUS true untuk HTTPS
+      secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     },
   })
