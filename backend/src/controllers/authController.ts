@@ -445,3 +445,18 @@ export const logout = asyncHandler(async (req: Request, res: Response) => {
   res.clearCookie("connect.sid", { path: "/" }); // Hapus session cookie
   res.status(200).json({ message: "Logout successful" });
 });
+
+export const me = asyncHandler(async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+  if (!token) {
+    res.status(401).json({ message: "Unathorized" });
+  }
+  try {
+    const decode = jwt.verify(token, process.env.SECRET_KEY);
+    res.status(200).json({ user: decode });
+    return;
+  } catch (error) {
+    res.status(401).json({ message: "Invalid token" });
+    return;
+  }
+});
