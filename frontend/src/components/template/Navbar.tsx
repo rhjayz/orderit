@@ -20,7 +20,6 @@ function Navbar() {
     try {
       await logout();
       Cookies.remove("hasVisitedDashboard");
-      window.location.href = "/login";
     } catch (error) {
       console.log(error, "Logout Failed");
     }
