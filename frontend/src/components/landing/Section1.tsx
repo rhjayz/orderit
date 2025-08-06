@@ -102,7 +102,7 @@ export default function Section1({ isActive }: { isActive: boolean }) {
             <div className="d-flex flex-column gap-3 boxrow1">
               <div className="box1-section1 bg-body-secondary rounded-3 p-0">
                 <img
-                  src="/box1.png"
+                  src="/box1sec.png"
                   alt=""
                   className="img-fluid w-100 h-100 rounded object-fit-cover"
                 />
