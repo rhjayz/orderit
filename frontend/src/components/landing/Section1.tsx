@@ -102,14 +102,14 @@ export default function Section1({ isActive }: { isActive: boolean }) {
             <div className="d-flex flex-column gap-3 boxrow1">
               <div className="box1-section1 bg-body-secondary rounded-3 p-0">
                 <img
-                  src="/box1sec.png"
+                  src="/newbox.PNG"
                   alt=""
                   className="img-fluid w-100 h-100 rounded object-fit-cover"
                 />
               </div>
               <div className="box2-section1 rounded-3 p-0">
                 <img
-                  src="/box3.png"
+                  src="/box2.png"
                   alt=""
                   className="img-fluid w-100 h-100 rounded object-fit-contain"
                 />
@@ -118,7 +118,7 @@ export default function Section1({ isActive }: { isActive: boolean }) {
             <div className="boxrow2">
               <div className="box2-section1 rounded-3 mt-4">
                 <img
-                  src="/box2.png"
+                  src="/box3.png"
                   alt=""
                   className="img-fluid w-100 h-100 rounded object-fit-contain"
                 />
