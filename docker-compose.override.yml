@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - VITE_BACKEND_URL="http://localhost:5000/api"
+      - FRONTEND_URL="http://localhost:3000/"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL="mysql://root:@localhost:3306/orderit" 
+      - GOOGLE_CLIENT_ID=
+      - GOOGLE_CLIENT_SECRET=
+      - GOOGLE_CALLBACK_URL=http://localhost:5000/api/google/callback
+      - SECRET_KEY=54f8ffec8a0a41670b04053f3f0e295504fe27b3580317ba7ba03227f72454a818d3d26cddd37318bc6e52dfcae7eab9ba0e76b681dead6d66fb6aacb23ba5d0
+      - ACCESS_TOKEN_SECRET=54f8ffec8a0a41670b04053f3f0e2955RAHA27b3580317ba7ba03227f72454a818d3d26cddd37318bc6e52dfcae7eab9ba0e76b681dead6d66fb6aacb23ba5d0
+      - REFRESH_TOKEN_SECRET=54f8ffec8a0a41670b04053f3f0e2955JAY27b3580317ba7ba03227f72454a818d3d26cddd37318bc6e52dfcae7eab9ba0e76b681dead6d66fb6aacb23ba5d0
+      - EMAIL_USER=mrahajay@gmail.com
+      - EMAIL_PASS="opvt tudv eiqm fgpv"
+      - BASE_URL="http://localhost:5000/api" 
+      - FRONTEND_URL="http://localhost:3000"
+      - NODE_ENV=development
+    depends_on:
+      - mysql

@@ -6,14 +6,20 @@ services:
     container_name: orderit-backend
     ports:
       - "5000:5000"
+    env_file:
+      - ./backend/.env
     environment:
-      DATABASE_URL: mysql://root:@mysql:3306/orderit
+      - NODE_ENV=production
     depends_on:
       - mysql
 
   frontend:
     build: ./frontend
     container_name: orderit-frontend
+    env_file:
+      - ./frontend/.env
+    environment:
+      - NODE_ENV=production
     ports:
       - "3000:3000"  # sesuaikan jika frontend kamu serve di 5173
     depends_on:

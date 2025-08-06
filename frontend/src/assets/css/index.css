@@ -3,11 +3,123 @@
   background-color: #fffdfb;
 }
 
+.semibold-text {
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: 600;
+}
+
+.mt-left-s1{
+  margin-top: 115px;
+}
+
+.mt-right-s1 {
+  margin-top: 90px;
+}
+
+.section1-fh{
+  font-size: 24px;
+}
+
+.section1-subfh {
+  font-size: 14px;
+}
+
+.gap-12px {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gap-12px p {
+  margin: 0;
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+.custom-accordion-button:hover {
+  background-color: #f1f1f1 !important;
+  color: #f1f1f1 !important;
+}
+
+.accordion-item {
+  border: 1px solid #f1f1f1 !important;
+  border-radius: 8px !important;
+  color: #6c757d!important;
+}
+
+.custom-accordion-button:not(.collapsed) {
+  background-color: white !important;
+  /* ganti sesuai keinginan */
+  color: #6c757d !important;
+  box-shadow: none;
+  border-radius: 10%;
+  border: 1px;
+}
+
+.accordion-body {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-body.show {
+  max-height: 300px;
+  /* cukup gede tapi jangan terlalu besar */
+  opacity: 1;
+}
+
+.btn-orderit{
+  background-color: #FCDDE0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-orderit:hover {
+  background-color: #f8c4c9;
+  color: #661922;
+}
+
+.p-2-5{
+  padding: 0.75rem;
+}
+
+.box1-section1 {
+  background-color: #f8c4c9;
+  width: 100%;
+  max-width: 243px;
+  aspect-ratio: 243 / 115;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  /* contoh */
+}
+
+.box1-section1:hover{
+  box-shadow: 0 5px 15px rgba(248, 196, 201, 1);
+  transform: translateY(-6px);
+}
+
+.box2-section1 {
+  background-color: #FCDDE0;
+  width: 100%;
+  max-width: 243px;
+  aspect-ratio: 243 / 307;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  /* contoh */
+}
+
+.box2-section1:hover {
+  box-shadow: 0 5px 15px rgba(248, 196, 201, 1);
+  transform: translateY(-6px);
+}
 
 .index-page{
   opacity: 0;
   transition: opacity 0.3s ease-in;
 }
+
 .index-page.fade-in{
   opacity: 1;
 }
@@ -40,6 +152,18 @@ html, body {
 
 * {
     box-sizing: border-box;
+}
+
+.mt-left-s1 {
+  margin-top: 100px;
+}
+
+.mt-right-s1 {
+  margin-top: 100px;
+}
+
+.custom-cardsec2{
+  width: 10vh;
 }
 
 }
