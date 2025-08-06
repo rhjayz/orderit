@@ -112,7 +112,7 @@ const Section2 = forwardRef<Section2Ref, {}>((_, ref) => {
                 <div className="d-flex flex-row gap-2">
                   <div>
                     <img
-                      src={`/public/landing-page/section2/${items.image}.jpg`}
+                      src={`/landing-page/section2/${items.image}.jpg`}
                       alt=""
                       className="rounded-circle object-fit-cover"
                       width={50}

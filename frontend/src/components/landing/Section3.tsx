@@ -128,8 +128,6 @@ const Section3 = forwardRef<Section3Ref, { isActive: boolean }>(
             ))}
           </div>
         </div>
-
-        {/* {isMobile && <div className="col-md-12">bims</div>} */}
       </div>
     );
   }
